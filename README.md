@@ -1,4 +1,4 @@
-# pilgen
+# Pilgen - (WIP: optimizing) 
 
 Python Image-Label dataset Generator for OCR
 
