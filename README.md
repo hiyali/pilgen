@@ -46,7 +46,7 @@ python3 test.py
 
 Salam Hiyali
 
-## Contirubute
+## Contribute
 
 > Feel free
 
