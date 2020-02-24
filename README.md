@@ -1,4 +1,4 @@
-# pilgen
+# Pilgen - (WIP: optimizing) 
 
 Python Image-Label dataset Generator for OCR
 
@@ -46,7 +46,7 @@ python3 test.py
 
 Salam Hiyali
 
-## Contirubute
+## Contribute
 
 > Feel free
 
