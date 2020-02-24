@@ -5,12 +5,12 @@
 import random
 from PIL import ImageFont, ImageDraw
 from lang.ug.font import get_rand_font
-from lang.ug.util.bedit import uly_2_ug
+from lang.ug.util.bedit import uly_2_ug, get_char_list
 from lang.ug.util.convert import br_2_pf
 from util.color import getRandHex
 
-# None - Üzük Tawush
 # 'vowel' - Sozuq Tawush
+# None - Üzük Tawush
 uly_char_map = {
     'ﺎﺋ': { 'Type': 'vowel', 'Latin': ['a', 'A'] },
     'ﺏ':  { 'Type':  None  , 'Latin': ['b', 'B'] },
@@ -109,8 +109,7 @@ def gen_rand_uly_word():
 def get_rand_word():
     uly_str = gen_rand_uly_word()
     ug_str = uly_2_ug(uly_str)
-    ug_str_pf = br_2_pf(ug_str)
-    res = ''.join(reversed(ug_str_pf))
+    res = br_2_pf(ug_str)
     return res
 
 def get_rand_font_size(word_len):
@@ -119,7 +118,11 @@ def get_rand_font_size(word_len):
 
 def putRandText(img):
     word = get_rand_word()
-    font = ImageFont.truetype(get_rand_font(), get_rand_font_size(len(word)))
+    put_word = ''.join(reversed(word)) # for put into the img
+    font = ImageFont.truetype(get_rand_font(), get_rand_font_size(len(put_word)))
     draw = ImageDraw.Draw(img)
-    draw.text((10, 10), word, font = font, fill = getRandHex())
+    draw.text((10, 10), put_word, font = font, fill = getRandHex())
     return img, word
+
+def getCharList():
+    return get_char_list()

@@ -207,8 +207,8 @@ def uly_2_ug(ustr):
     while i < len(uly): # uly.length
         ch = 0;
         cur = uly[i];
-        next1 = "";
         ccode = ord(uly[i]);
+        next1 = "";
         ncode = None
         if i+1 < len(uly):
             next1 = uly[i+1];
@@ -225,7 +225,7 @@ def uly_2_ug(ustr):
             verbatim = True;
             continue;
 
-        if cur == '|' and ( prev == 'u' ) and (next1 == 'a' or next1 == 'e'):
+        if cur == '|' and prev == 'u' and (next1 == 'a' or next1 == 'e'):
             wdbeg = False;
             continue;
 
@@ -298,3 +298,15 @@ def isalpha(code):
     if (gac('A') <= code and code <= gac('Z')) or (gac('a') <= code and code <= gac('z')):
         return True;
     return False;
+
+def get_char_list():
+    global inited
+    if not inited:
+        bedit_init();
+
+    char_list = []
+    for k in cm:
+        # print(k, cm[k], chr(int(cm[k])))
+        char_list += [chr(int(cm[k]))] if cm[k] else []
+
+    return char_list
