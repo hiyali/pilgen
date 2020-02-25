@@ -11,10 +11,10 @@ def util(lang = 'ug', out_dir = 'data/'):
     os.makedirs(out_dir, exist_ok=True)
     fp = os.path.join(out_dir, 'char_list.txt')
 
-    gtf = open(fp, "w")
-    gtf.write(''.join(char_list))
+    clf = open(fp, "w")
+    clf.write(''.join(char_list))
 
-    print('The char_list written into `{}`'.format(fp))
+    print('The char_list[{}] written into `{}`'.format(len(char_list), fp))
 
 if __name__ == '__main__':
     util()

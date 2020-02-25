@@ -1,8 +1,8 @@
 from PIL import Image
 from util.color import getRandHex
 
-def gen():
+def gen(size):
     img = Image.new(mode = "RGB",
-                    size = (200, 100),
+                    size = size,
                     color = getRandHex())
     return img

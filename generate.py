@@ -11,8 +11,12 @@ def gen(lang = 'ug', count = 100, out_dir = 'data/'):
     gtf = open(fp_gt, "w") # gt-file
 
     for i in range(count):
-        img = image.gen()
-        img, word = str_util.putRandText(img)
+        if count > 1000 and (i + 1) % 1000 == 0:
+            print('Written {} / {}'.format(i, count))
+
+        # img = image.gen()
+        img, word = str_util.genRandTextImg()
+
         # img.show()
         fp_rlyt = 'images/word_{}.jpg'.format(i + 1)
         fp_root = os.path.join(out_dir, fp_rlyt)

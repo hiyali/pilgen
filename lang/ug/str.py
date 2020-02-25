@@ -5,9 +5,10 @@
 import random
 from PIL import ImageFont, ImageDraw
 from lang.ug.font import get_rand_font
-from lang.ug.util.bedit import uly_2_ug, get_char_list
-from lang.ug.util.convert import br_2_pf
+from lang.ug.util.bedit import uly_2_ug
+from lang.ug.util.convert import br_2_pf, get_char_list
 from util.color import getRandHex
+from util import image
 
 # 'vowel' - Sozuq Tawush
 # None - Üzük Tawush
@@ -79,7 +80,7 @@ def grucc(ch_type = ''):
 
 # simple random uly word generator, could optimize
 def gen_rand_uly_word():
-    count = random.randint(2,16)
+    count = random.randint(8,16)
     prev = None # record previous char is vowel or not
     prevb = None # record previous before previous char is vowel or not
     word = ''
@@ -91,7 +92,7 @@ def gen_rand_uly_word():
             prev = 'not_vowel'
             word += cc['Latin'][0]
             continue
-        elif prev == prevb == 'not_vowel':
+        elif prev == 'not_vowel': # prevb ==
             cc = grucc('vowel')
             prevb = prev
             prev = 'vowel'
@@ -113,15 +114,17 @@ def get_rand_word():
     return res
 
 def get_rand_font_size(word_len):
-    size = random.randint(20, 60 - int(1.5 * word_len))
+    size = random.randint(30, 60 - int(1.5 * word_len))
     return size
 
-def putRandText(img):
+def genRandTextImg():
     word = get_rand_word()
     put_word = ''.join(reversed(word)) # for put into the img
     font = ImageFont.truetype(get_rand_font(), get_rand_font_size(len(put_word)))
+    size = font.getsize(put_word)
+    img = image.gen((size[0] + 10, size[1] + 10))
     draw = ImageDraw.Draw(img)
-    draw.text((10, 10), put_word, font = font, fill = getRandHex())
+    draw.text((5, 5), put_word, font = font, fill = getRandHex())
     return img, word
 
 def getCharList():

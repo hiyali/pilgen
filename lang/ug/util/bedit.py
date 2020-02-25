@@ -298,15 +298,3 @@ def isalpha(code):
     if (gac('A') <= code and code <= gac('Z')) or (gac('a') <= code and code <= gac('z')):
         return True;
     return False;
-
-def get_char_list():
-    global inited
-    if not inited:
-        bedit_init();
-
-    char_list = []
-    for k in cm:
-        # print(k, cm[k], chr(int(cm[k])))
-        char_list += [chr(int(cm[k]))] if cm[k] else []
-
-    return char_list

@@ -641,3 +641,34 @@ def is_vowel ( ch ):
         return True;
 
     return False;
+
+def uniq(l):
+    m = {}
+    for i in l:
+        m[i] = 1
+    return list(m.keys())
+
+def get_syn_list(syn):
+    return [chr(syn.iform), chr(syn.bform), chr(syn.mform), chr(syn.eform)]
+
+def get_char_list():
+    global pfinited
+    if not pfinited:
+        pfinit();
+
+    char_list = []
+    for k in cm:
+        if cm[k] == 0:
+            continue
+        # print(k, cm[k], chr(int(cm[k])))
+        char_list += [chr(int(cm[k]))]
+
+    for k in pform:
+        syn = pform[k]
+        if not syn:
+            continue
+        char_list += get_syn_list(syn)
+
+    char_list = uniq(char_list)
+
+    return char_list
