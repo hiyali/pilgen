@@ -1,4 +1,4 @@
-# Pilgen - (WIP: optimizing) 
+# Pilgen - (WIP: optimizing)
 
 Python Image-Label dataset Generator for OCR
 
@@ -30,6 +30,16 @@ data/images/word_100.jpg	گۈللە
 
 * [x] ug - Uyghur (Uighur)
 * [ ] other langs may will come
+
+## FAQ
+
+1. How use your own corpus?
+
+Ref: [#2](https://github.com/hiyali/pilgen/issues/2)
+
+2. Uighur words are separated in image?
+
+Ref: [#2](https://github.com/hiyali/pilgen/issues/2)
 
 ## Test
 
