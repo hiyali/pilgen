@@ -37,7 +37,7 @@ data/images/word_100.jpg	گۈللە
 
 Ref: [#2](https://github.com/hiyali/pilgen/issues/2)
 
-2. Uighur words are separated in image?
+2. Uyghur words are separated in image?
 
 Ref: [#2](https://github.com/hiyali/pilgen/issues/2)
 
